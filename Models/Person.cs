@@ -8,17 +8,9 @@ namespace EntityFramework___Code_First.Models
 {
     public class Person
     {
-        public Guid PersonId { get; set; }
+        public int PersonId { get; set; }
         public string Name { get; set; }
-        public List<SavingAccount> Accounts { get; set; }
-        public Guid AccountId { get; set; } 
-
-        public Person(Guid personId, string name, List<SavingAccount> accounts) 
-        {
-            PersonId = personId;
-            Name = name;
-            Accounts = accounts; 
-
-        } 
+        public ICollection<SavingAccount> SavingAccounts { get; set; } 
+        
     }
 }

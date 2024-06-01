@@ -18,7 +18,7 @@ namespace EntityFramework___Code_First.Models
 
             // Multiplier le montant du taux d'epargne par le nbre de mois (ou d'année) -> *12 ou *1
 
-            // Faire la somme du montant initial + résultat taux d'épargne   
+            // Faire la somme du montant initial + résultat taux d'épargne 
         }
 
     }
