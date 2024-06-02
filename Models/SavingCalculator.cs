@@ -8,17 +8,50 @@ namespace EntityFramework___Code_First.Models
 {
     public class SavingCalculator
     {
-        // Utiliser mot clé using pour utiliser les entités de la BDD
 
-        public void CalculerTotauxEpargne() 
+        public void CalculerSommeTotauxEpargne() 
         {
-            // Récupérer montant initial du compte epargne 
+            using (ManageAccountContext context = new ManageAccountContext()) 
+            {
+                List<SavingAccount> comptes = context.SavingAccounts.Select((c) => c).ToList();
 
-            // Calculer le taux du compte epargne à partir du montant initial 
+                List<Person> personnes = context.Persons.Where((p) => p.Name == "Richard").ToList();  
+                
+                // Pour chaque compte de Richard  
 
-            // Multiplier le montant du taux d'epargne par le nbre de mois (ou d'année) -> *12 ou *1
+                // Récupérer montant initial du compte epargne de Richard 
 
-            // Faire la somme du montant initial + résultat taux d'épargne 
+                // Récupérer le montant du taux d'epargne du compte epargne de Richard 
+                
+                // Convertir le montant du taux d'epargne en valeur de pourcentage (ex pr 5 % au format : 0.05 ) -> crééer variable intermédiaire de type decimal avec arrondi 2 chiffres après la virgule
+
+                // int ratioPourcentage = 100;
+                // decimal tauxEpargneVersionPourcentage = (decimal) tauxEpargne / (decimal) ratioPourcentage;
+
+                // Calculer le montant epargné  (montant initial * taux epargne version pourcentage)
+
+                // Multiplier le montant epargné par le nbre de mois (ou d'année) -> *12 ou *1 (mettre les conditions)
+
+                // Faire la somme du montant initial + montant épargné 
+
+                // Afficher les comptes de Richard   
+
+                foreach ( Person personne in personnes)
+                {
+                    Console.WriteLine($"Comptes de Mr {personne.Name} : "); 
+                    Console.WriteLine();
+
+                    foreach ( SavingAccount compte in personne.SavingAccounts) 
+                    {
+                        Console.WriteLine($"Taux d'épargne : {compte.SavingRate} %. Fonds déposés initialement : {compte.Amount} €"); 
+                        Console.WriteLine();  
+                    }
+
+                    // Afficher le résultat des totaux des comptes dans la console  
+                    //Console.WriteLine($"Totaux des montants sur tous les comptes épargnes {personne.Name} : ");
+                }
+            } 
+
         }
 
     }

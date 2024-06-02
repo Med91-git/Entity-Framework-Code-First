@@ -8,9 +8,10 @@ namespace EntityFramework___Code_First.Models
 {
     public class Person
     {
-        public int PersonId { get; set; }
+        public Guid PersonId { get; set; } 
         public string Name { get; set; }
-        public ICollection<SavingAccount> SavingAccounts { get; set; } 
-        
-    }
+        public List<SavingAccount> SavingAccounts { get; set; }
+        public Guid SavingAccountId { get; set; }
+
+    } 
 }

@@ -8,9 +8,9 @@ namespace EntityFramework___Code_First.Models
 {
     public class SavingAccount
     {
-        public int SavingAccountId { get; set; } 
+        public Guid SavingAccountId { get; set; }
         public int Amount { get; set; } 
-        public decimal SavingRate { get; set; }  
-               
+        public int SavingRate { get; set; }  
+        
     }
 }
